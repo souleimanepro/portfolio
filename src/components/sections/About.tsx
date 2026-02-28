@@ -33,8 +33,8 @@ export function About() {
                         >
                             {/* Header Section for Mobile (Logo + Title) / Just Logo on Desktop */}
                             <div className="flex items-center md:items-start gap-5 w-full md:w-auto mt-2 md:mt-0">
-                                <div className="flex-shrink-0 w-20 h-20 md:w-28 md:h-28 relative flex items-center justify-center">
-                                    <Image src={renaultLogo} alt="Renault Trucks Logo" fill className="object-contain" />
+                                <div className="flex-shrink-0 w-20 h-20 md:w-28 md:h-28 rounded-2xl bg-white border border-muted-foreground/15 shadow-sm relative overflow-hidden flex items-center justify-center p-3">
+                                    <Image src={renaultLogo} alt="Renault Trucks Logo" fill className="object-contain p-2 md:p-4" />
                                 </div>
                                 <div className="flex-1 md:hidden">
                                     <h3 className="text-xl font-bold text-foreground leading-tight">{t.about.renault.title}</h3>
@@ -95,8 +95,8 @@ export function About() {
                         >
                             {/* Header Section for Mobile (Logo + Title) / Just Logo on Desktop */}
                             <div className="flex items-center md:items-start gap-5 w-full md:w-auto mt-2 md:mt-0">
-                                <div className="flex-shrink-0 w-20 h-20 md:w-28 md:h-28 relative flex items-center justify-center">
-                                    <Image src={suezLogo} alt="Suez Eau France Logo" fill className="object-contain mix-blend-multiply dark:mix-blend-screen dark:invert contrast-[1.2]" />
+                                <div className="flex-shrink-0 w-20 h-20 md:w-28 md:h-28 rounded-2xl bg-white border border-muted-foreground/15 shadow-sm relative overflow-hidden flex items-center justify-center p-3">
+                                    <Image src={suezLogo} alt="Suez Eau France Logo" fill className="object-contain p-2 md:p-4" />
                                 </div>
                                 <div className="flex-1 md:hidden">
                                     <h3 className="text-xl font-bold text-foreground leading-tight">{t.about.suez.title}</h3>
