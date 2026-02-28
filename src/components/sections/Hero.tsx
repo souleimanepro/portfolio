@@ -19,9 +19,9 @@ export function Hero() {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, ease: "easeOut" }}
                     >
-                        <h1 className="text-5xl md:text-7xl font-semibold tracking-tighter leading-[1.1] text-foreground mb-6">
+                        <h1 className="text-5xl sm:text-6xl md:text-7xl font-semibold tracking-tighter leading-[1.1] text-foreground mb-6">
                             {t.hero.title}<br />
-                            <span className="text-muted-foreground text-4xl md:text-5xl block mt-4">{t.hero.subtitle}</span>
+                            <span className="text-muted-foreground text-3xl sm:text-4xl md:text-5xl block mt-2 md:mt-4">{t.hero.subtitle}</span>
                         </h1>
                     </motion.div>
 

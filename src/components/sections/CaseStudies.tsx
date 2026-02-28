@@ -112,7 +112,7 @@ export function CaseStudies() {
                             }}
                             className="absolute w-full"
                         >
-                            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 item-start">
+                            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-16 item-start">
                                 {/* Left Side: Title and Big Impact */}
                                 <div className="flex flex-col gap-12">
                                     <h3 className="text-3xl md:text-4xl font-semibold leading-tight text-foreground">
