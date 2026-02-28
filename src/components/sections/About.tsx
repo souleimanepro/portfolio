@@ -4,8 +4,10 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import renaultLogo from "../../../public/renault-logo.png";
 import suezLogo from "../../../public/suez-logo.png";
+import { useTranslation } from "@/lib/i18n/LanguageContext";
 
 export function About() {
+    const { t } = useTranslation();
     return (
         <section id="about" className="min-h-screen flex items-center py-24 bg-muted/10 border-t border-muted-foreground/10 snap-start">
             <div className="container px-6 mx-auto">
@@ -17,7 +19,7 @@ export function About() {
                         transition={{ duration: 0.6 }}
                         className="text-3xl md:text-4xl font-semibold tracking-tight mb-12 text-foreground"
                     >
-                        À propos de moi
+                        {t.about.title}
                     </motion.h2>
 
                     <div className="flex flex-col gap-12 mt-12 w-full">
@@ -36,10 +38,10 @@ export function About() {
 
                             <div className="flex-1">
                                 <div className="flex flex-col md:flex-row md:items-center justify-between mb-4 gap-2">
-                                    <h3 className="text-2xl font-bold text-foreground">Data Analyst & Business Analyst</h3>
+                                    <h3 className="text-2xl font-bold text-foreground">{t.about.renault.title}</h3>
                                     <div className="flex flex-col items-start md:items-end gap-1">
-                                        <span className="text-sm font-medium text-muted-foreground bg-muted md:px-3 py-1 rounded-full whitespace-nowrap">Aujourd&apos;hui (Master Ingénierie de la Donnée)</span>
-                                        <span className="text-xs text-muted-foreground font-semibold">Septembre 2024 — Septembre 2026</span>
+                                        <span className="text-sm font-medium text-muted-foreground bg-muted md:px-3 py-1 rounded-full whitespace-nowrap">{t.about.renault.duration}</span>
+                                        <span className="text-xs text-muted-foreground font-semibold">{t.about.renault.date}</span>
                                     </div>
                                 </div>
                                 <div className="text-lg font-semibold text-muted-foreground mb-6">
@@ -50,15 +52,15 @@ export function About() {
                                     <ul className="space-y-4 flex-1">
                                         <li className="flex items-start">
                                             <div className="w-1.5 h-1.5 rounded-full bg-accent mt-2 mr-4 flex-shrink-0"></div>
-                                            <p className="text-muted-foreground leading-relaxed">Conception et automatisation de dashboards Power BI pour le suivi de <strong className="text-foreground">30+ KPIs</strong> répartis sur les multiples marchés européens.</p>
+                                            <p className="text-muted-foreground leading-relaxed" dangerouslySetInnerHTML={{ __html: t.about.renault.bullet1 }}></p>
                                         </li>
                                         <li className="flex items-start">
                                             <div className="w-1.5 h-1.5 rounded-full bg-accent mt-2 mr-4 flex-shrink-0"></div>
-                                            <p className="text-muted-foreground leading-relaxed">Support au reporting stratégique pour les parties prenantes internationales (essentiellement en anglais), renforçant l&apos;adoption de la donnée et l&apos;efficacité décisionnelle.</p>
+                                            <p className="text-muted-foreground leading-relaxed" dangerouslySetInnerHTML={{ __html: t.about.renault.bullet2 }}></p>
                                         </li>
                                         <li className="flex items-start">
                                             <div className="w-1.5 h-1.5 rounded-full bg-accent mt-2 mr-4 flex-shrink-0"></div>
-                                            <p className="text-muted-foreground leading-relaxed">Implémentation d&apos;un framework structuré de suivi des KPIs améliorant considérablement la visibilité des performances à travers les différentes Business Units.</p>
+                                            <p className="text-muted-foreground leading-relaxed" dangerouslySetInnerHTML={{ __html: t.about.renault.bullet3 }}></p>
                                         </li>
                                     </ul>
                                     <div className="flex flex-row xl:flex-col flex-wrap lg:w-48 gap-2 shrink-0 h-fit bg-muted/30 p-4 rounded-2xl border border-muted-foreground/5">
@@ -88,10 +90,10 @@ export function About() {
 
                             <div className="flex-1">
                                 <div className="flex flex-col md:flex-row md:items-center justify-between mb-4 gap-2">
-                                    <h3 className="text-2xl font-bold text-foreground">BI Developer</h3>
+                                    <h3 className="text-2xl font-bold text-foreground">{t.about.suez.title}</h3>
                                     <div className="flex flex-col items-start md:items-end gap-1">
-                                        <span className="text-sm font-medium text-muted-foreground bg-muted md:px-3 py-1 rounded-full whitespace-nowrap">2 ans (BUT Science de la Donnée)</span>
-                                        <span className="text-xs text-muted-foreground font-semibold">Septembre 2022 — Septembre 2024</span>
+                                        <span className="text-sm font-medium text-muted-foreground bg-muted md:px-3 py-1 rounded-full whitespace-nowrap">{t.about.suez.duration}</span>
+                                        <span className="text-xs text-muted-foreground font-semibold">{t.about.suez.date}</span>
                                     </div>
                                 </div>
                                 <div className="text-lg font-semibold text-muted-foreground mb-6">
@@ -102,15 +104,15 @@ export function About() {
                                     <ul className="space-y-4 flex-1">
                                         <li className="flex items-start">
                                             <div className="w-1.5 h-1.5 rounded-full bg-muted-foreground mt-2 mr-4 flex-shrink-0"></div>
-                                            <p className="text-muted-foreground leading-relaxed">Développement et déploiement d&apos;outils de reporting automatisés permettant une nette amélioration de la visibilité sur les opérations terrain.</p>
+                                            <p className="text-muted-foreground leading-relaxed" dangerouslySetInnerHTML={{ __html: t.about.suez.bullet1 }}></p>
                                         </li>
                                         <li className="flex items-start">
                                             <div className="w-1.5 h-1.5 rounded-full bg-muted-foreground mt-2 mr-4 flex-shrink-0"></div>
-                                            <p className="text-muted-foreground leading-relaxed">Conception de dashboards interactifs d&apos;aide à la décision visant à fluidifier le suivi continu et accroître l&apos;efficacité du reporting interne.</p>
+                                            <p className="text-muted-foreground leading-relaxed" dangerouslySetInnerHTML={{ __html: t.about.suez.bullet2 }}></p>
                                         </li>
                                         <li className="flex items-start">
                                             <div className="w-1.5 h-1.5 rounded-full bg-muted-foreground mt-2 mr-4 flex-shrink-0"></div>
-                                            <p className="text-muted-foreground leading-relaxed">Création et standardisation d&apos;un processus de documentation technique, accélérant l&apos;adoption des rapports par les équipes et assurant un meilleur transfert des connaissances.</p>
+                                            <p className="text-muted-foreground leading-relaxed" dangerouslySetInnerHTML={{ __html: t.about.suez.bullet3 }}></p>
                                         </li>
                                     </ul>
                                     <div className="flex flex-row xl:flex-col flex-wrap lg:w-48 gap-2 shrink-0 h-fit bg-muted/30 p-4 rounded-2xl border border-muted-foreground/5">

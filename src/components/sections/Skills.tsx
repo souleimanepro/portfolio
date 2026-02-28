@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { BarChart3, Code2, DatabaseZap, CheckCircle2, Languages } from "lucide-react";
+import { useTranslation } from "@/lib/i18n/LanguageContext";
 
 const hardSkills = [
     {
@@ -30,12 +31,15 @@ const softSkills = [
     "Adaptability in International Environments"
 ];
 
-const languages = [
-    { name: "English", level: "Professional" },
-    { name: "French", level: "Native" }
-];
+
 
 export function Skills() {
+    const { t } = useTranslation();
+
+    const languages = [
+        { name: "English", level: t.skills.levels.pro },
+        { name: "French", level: t.skills.levels.native }
+    ];
     return (
         <section id="skills" className="min-h-screen flex items-center py-24 bg-background snap-start relative overflow-hidden">
             {/* Ambient Background Gradient */}
@@ -50,7 +54,7 @@ export function Skills() {
                         transition={{ duration: 0.6 }}
                         className="text-4xl md:text-5xl font-semibold tracking-tight mb-4 text-foreground"
                     >
-                        Compétences & Profil
+                        {t.skills.title}
                     </motion.h2>
                     <motion.p
                         initial={{ opacity: 0, y: 20 }}
@@ -59,7 +63,7 @@ export function Skills() {
                         transition={{ duration: 0.6, delay: 0.1 }}
                         className="text-lg text-muted-foreground"
                     >
-                        Créer de la valeur par la maîtrise technique et la compréhension stratégique des enjeux business.
+                        {t.skills.subtitle}
                     </motion.p>
                 </div>
 
@@ -110,7 +114,7 @@ export function Skills() {
                             <div className="absolute -top-24 -right-24 w-48 h-48 bg-white/10 rounded-full blur-3xl group-hover:bg-white/20 transition-colors duration-700"></div>
 
                             <h3 className="text-xl font-bold mb-8 flex items-center gap-3">
-                                Soft Skills
+                                {t.skills.softSkills}
                             </h3>
                             <ul className="space-y-4 relative z-10">
                                 {softSkills.map((skill, idx) => (
@@ -126,7 +130,7 @@ export function Skills() {
                         <div className="p-8 rounded-3xl bg-muted border border-muted-foreground/10">
                             <h3 className="text-xl font-bold mb-6 text-foreground flex items-center gap-3">
                                 <Languages className="w-5 h-5 text-muted-foreground" />
-                                Langues
+                                {t.skills.languages}
                             </h3>
                             <div className="flex flex-col gap-3">
                                 {languages.map((lang, idx) => (

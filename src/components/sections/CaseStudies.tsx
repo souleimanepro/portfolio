@@ -3,37 +3,19 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
+import { useTranslation } from "@/lib/i18n/LanguageContext";
 
-const cases = [
-    {
-        title: "European Used Trucks Performance Dashboard",
-        context: "Suite à l'arrêt (decommissioning) de Qlik, nécessité urgente d'assurer la continuité du reporting pour l'activité Véhicules d'Occasion (Used Trucks) sur plus de 20 marchés européens.",
-        objective: "Redesigner et implémenter intégralement le tableau de bord de performance sous Power BI pour garantir la continuité des opérations.",
-        solution: "Intégration et modélisation de flux de données multi-sources (commandes, ventes, rachats, structures) dans un framework de reporting Power BI unifié et robuste desservant plus de 50 parties prenantes.",
-        stack: ["Azure Databricks", "Power BI", "ETL", "Data Modeling"],
-        result: "Standardisation mondiale du suivi des KPIs et réduction de 40% du temps de préparation manuel des rapports grâce à l'automatisation de la consolidation des données."
-    },
-    {
-        title: "European MHDV Market Data Consolidation Platform",
-        context: "Nécessité d'obtenir une base d'immatriculations centralisée consolidant les jeux de données fragmentés de plus de 20 pays européens.",
-        objective: "Concevoir et implémenter une plateforme unique de consolidation des données de marché pour les véhicules industriels lourds (MHDV).",
-        solution: "Développement de pipelines Databricks pour nettoyer, standardiser et harmoniser plus de 5 formats de données hétérogènes (Excel, Dataflows, Power BI), traitant plus de 500k enregistrements annuels.",
-        stack: ["Azure Databricks", "Power BI", "Data Engineering", "Python"],
-        result: "Déploiement d'un dashboard Power BI permettant une analyse croisée de segmentation et de performance par type de carrosserie, réduisant de 60% l'effort manuel de consolidation."
-    },
-    {
-        title: "LCV Competitive Pricing Monitoring",
-        context: "Nécessité de reconstruire une solution interne d'intelligence tarifaire du marché suite à l'arrêt d'un fournisseur de données externe coûtant 80 000€/an.",
-        objective: "Développer une plateforme automatisée de veille concurrentielle sur les véhicules utilitaires légers (LCV).",
-        solution: "Création de pipelines de web scraping automatisés en Python (Playwright) pour collecter et standardiser chaque semaine plus de 1 000 annonces de véhicules sur les marchés NL, UK et IT.",
-        stack: ["Python", "Playwright", "Web Scraping", "Power BI", "Data Automation"],
-        result: "Génération d'économies annuelles majeures (80k€/an) et déploiement d'un dashboard de benchmarking compétitif (Trafic, Master et rivaux) évolutif sur l'Europe."
-    },
+const caseStacks = [
+    ["Azure Databricks", "Power BI", "ETL", "Data Modeling"],
+    ["Azure Databricks", "Power BI", "Data Engineering", "Python"],
+    ["Python", "Playwright", "Web Scraping", "Power BI", "Data Automation"]
 ];
 
 export function CaseStudies() {
+    const { t } = useTranslation();
     const [currentIndex, setCurrentIndex] = useState(0);
     const [direction, setDirection] = useState(0);
+    const cases = t.projects.cases.map((c, i) => ({ ...c, stack: caseStacks[i] }));
 
     const paginate = (newDirection: number) => {
         setDirection(newDirection);
@@ -76,7 +58,7 @@ export function CaseStudies() {
                             transition={{ duration: 0.6 }}
                             className="text-4xl md:text-5xl font-semibold tracking-tight mb-4 text-foreground"
                         >
-                            Projets Sélectionnés
+                            {t.projects.title}
                         </motion.h2>
                         <motion.p
                             initial={{ opacity: 0, y: 20 }}
@@ -85,7 +67,7 @@ export function CaseStudies() {
                             transition={{ duration: 0.6, delay: 0.1 }}
                             className="text-lg text-muted-foreground"
                         >
-                            Exemples d&apos;interventions stratégiques et analytiques.
+                            {t.projects.subtitle}
                         </motion.p>
                     </div>
 
@@ -139,7 +121,7 @@ export function CaseStudies() {
 
                                     <div>
                                         <h4 className="text-xs font-bold uppercase tracking-widest text-accent mb-4">
-                                            Résultat & Impact
+                                            {t.projects.result}
                                         </h4>
                                         <p className="text-xl md:text-2xl font-medium leading-relaxed text-foreground border-l-2 border-accent pl-6 py-2">
                                             {cases[currentIndex].result}
@@ -149,7 +131,7 @@ export function CaseStudies() {
                                     {/* Stack Badges directly below Impact on larger screens, or below title */}
                                     <div className="mt-auto pt-8">
                                         <h4 className="flex items-center gap-3 text-xs font-bold uppercase tracking-widest text-muted-foreground mb-4">
-                                            Tech Stack
+                                            {t.projects.stack}
                                         </h4>
                                         <div className="flex flex-wrap gap-2">
                                             {cases[currentIndex].stack.map((tech, idx) => (
@@ -166,7 +148,7 @@ export function CaseStudies() {
                                     <div className="group">
                                         <h4 className="flex items-center gap-3 text-xs font-bold uppercase tracking-widest text-muted-foreground mb-4">
                                             <span className="w-8 h-[1px] bg-muted-foreground/30 group-hover:bg-foreground transition-colors mix-blend-multiply"></span>
-                                            Contexte
+                                            {t.projects.context}
                                         </h4>
                                         <p className="text-muted-foreground leading-relaxed">
                                             {cases[currentIndex].context}
@@ -176,7 +158,7 @@ export function CaseStudies() {
                                     <div className="group">
                                         <h4 className="flex items-center gap-3 text-xs font-bold uppercase tracking-widest text-muted-foreground mb-4">
                                             <span className="w-8 h-[1px] bg-muted-foreground/30 group-hover:bg-foreground transition-colors mix-blend-multiply"></span>
-                                            Objectif Principal
+                                            {t.projects.objective}
                                         </h4>
                                         <p className="text-muted-foreground leading-relaxed">
                                             {cases[currentIndex].objective}
@@ -186,7 +168,7 @@ export function CaseStudies() {
                                     <div className="group">
                                         <h4 className="flex items-center gap-3 text-xs font-bold uppercase tracking-widest text-muted-foreground mb-4">
                                             <span className="w-8 h-[1px] bg-muted-foreground/30 group-hover:bg-foreground transition-colors mix-blend-multiply"></span>
-                                            Solution & Approche (Optionnel)
+                                            {t.projects.solution}
                                         </h4>
                                         <p className="text-muted-foreground leading-relaxed">
                                             {cases[currentIndex].solution}

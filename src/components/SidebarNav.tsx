@@ -1,17 +1,19 @@
 "use client";
 
 import { useEffect, useState } from "react";
-
-const sections = [
-    { id: "hero", label: "Accueil" },
-    { id: "about", label: "À propos" },
-    { id: "projects", label: "Projets" },
-    { id: "skills", label: "Compétences" },
-    { id: "contact", label: "Contact" },
-];
+import { useTranslation } from "@/lib/i18n/LanguageContext";
 
 export function SidebarNav() {
+    const { t } = useTranslation();
     const [activeSection, setActiveSection] = useState("hero");
+
+    const sections = [
+        { id: "hero", label: t.nav.hero },
+        { id: "about", label: t.nav.about },
+        { id: "projects", label: t.nav.projects },
+        { id: "skills", label: t.nav.skills },
+        { id: "contact", label: t.nav.contact },
+    ];
 
     useEffect(() => {
         const handleScroll = () => {

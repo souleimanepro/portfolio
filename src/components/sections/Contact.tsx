@@ -2,8 +2,10 @@
 
 import { motion } from "framer-motion";
 import { ArrowUpRight, Mail, Linkedin, Phone } from "lucide-react";
+import { useTranslation } from "@/lib/i18n/LanguageContext";
 
 export function Contact() {
+    const { t } = useTranslation();
     return (
         <section id="contact" className="min-h-screen flex items-center py-24 border-t border-muted-foreground/10 snap-start">
             <div className="container px-6 mx-auto">
@@ -17,8 +19,8 @@ export function Contact() {
                             transition={{ duration: 0.6 }}
                             className="text-4xl md:text-5xl font-semibold tracking-tight mb-6"
                         >
-                            Déployons la valeur <br />
-                            <span className="text-muted-foreground">de vos données.</span>
+                            {t.contact.titleLine1} <br />
+                            <span className="text-muted-foreground">{t.contact.titleLine2}</span>
                         </motion.h2>
                         <motion.p
                             initial={{ opacity: 0, y: 20 }}
@@ -27,7 +29,7 @@ export function Contact() {
                             transition={{ duration: 0.6, delay: 0.1 }}
                             className="text-lg text-foreground font-medium mb-2"
                         >
-                            Disponible pour missions freelance.
+                            {t.contact.available}
                         </motion.p>
                         <motion.p
                             initial={{ opacity: 0, y: 20 }}
@@ -36,7 +38,7 @@ export function Contact() {
                             transition={{ duration: 0.6, delay: 0.2 }}
                             className="text-md text-muted-foreground"
                         >
-                            Ouvert aux opportunités CDI stratégiques.
+                            {t.contact.open}
                         </motion.p>
                     </div>
 

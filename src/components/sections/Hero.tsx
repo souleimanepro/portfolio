@@ -1,8 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useTranslation } from "@/lib/i18n/LanguageContext";
 
 export function Hero() {
+    const { t } = useTranslation();
+
     return (
         <section id="hero" className="relative min-h-screen flex items-center justify-center pt-20 pb-16 overflow-hidden snap-start">
             {/* Subtle Background Glow for premium feel */}
@@ -17,8 +20,8 @@ export function Hero() {
                         transition={{ duration: 0.8, ease: "easeOut" }}
                     >
                         <h1 className="text-5xl md:text-7xl font-semibold tracking-tighter leading-[1.1] text-foreground mb-6">
-                            Souleimane.<br />
-                            <span className="text-muted-foreground text-4xl md:text-5xl block mt-4">Data Analyst & Business Analyst.</span>
+                            {t.hero.title}<br />
+                            <span className="text-muted-foreground text-4xl md:text-5xl block mt-4">{t.hero.subtitle}</span>
                         </h1>
                     </motion.div>
 
@@ -35,7 +38,7 @@ export function Hero() {
                                 className="w-1.5 h-1.5 bg-muted-foreground rounded-full"
                             />
                         </div>
-                        Découvrez-moi
+                        {t.hero.cta}
                     </motion.div>
                 </div>
             </div>

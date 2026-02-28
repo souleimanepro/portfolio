@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { LanguageProvider } from "@/lib/i18n/LanguageContext";
+import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
@@ -17,17 +19,22 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth snap-y snap-mandatory">
       <body className={`${inter.variable} font-sans antialiased min-h-screen flex flex-col`}>
-        {/* Simple Header */}
-        <header className="fixed w-full top-0 z-50 bg-background/80 backdrop-blur-md border-b border-muted">
-          <div className="container mx-auto px-6 h-16 flex items-center justify-between pointer-events-none">
-            {/* Can add logo or name here */}
-            <span className="font-semibold text-lg tracking-tight pointer-events-auto">Souleimane Hadbi.</span>
-          </div>
-        </header>
+        <LanguageProvider>
+          {/* Simple Header */}
+          <header className="fixed w-full top-0 z-50 bg-background/80 backdrop-blur-md border-b border-muted">
+            <div className="container mx-auto px-6 h-16 flex items-center justify-between">
+              {/* Can add logo or name here */}
+              <span className="font-semibold text-lg tracking-tight">Souleimane Hadbi.</span>
+              <div className="flex items-center gap-4">
+                <LanguageSwitcher />
+              </div>
+            </div>
+          </header>
 
-        <main className="flex-1">
-          {children}
-        </main>
+          <main className="flex-1">
+            {children}
+          </main>
+        </LanguageProvider>
       </body>
     </html>
   );
