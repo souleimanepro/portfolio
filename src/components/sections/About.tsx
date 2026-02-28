@@ -2,6 +2,8 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import renaultLogo from "../../../public/renault-logo.png";
+import suezLogo from "../../../public/suez-logo.png";
 
 export function About() {
     return (
@@ -29,7 +31,7 @@ export function About() {
                         >
                             {/* Logo Area */}
                             <div className="flex-shrink-0 w-24 h-24 md:w-28 md:h-28 rounded-2xl bg-white border border-muted-foreground/15 shadow-sm relative overflow-hidden flex items-center justify-center">
-                                <Image src="/renault-logo.png" alt="Renault Trucks Logo" fill className="object-contain p-3 md:p-4" />
+                                <Image src={renaultLogo} alt="Renault Trucks Logo" fill className="object-contain p-3 md:p-4" />
                             </div>
 
                             <div className="flex-1">
@@ -81,7 +83,7 @@ export function About() {
                         >
                             {/* Logo Area */}
                             <div className="flex-shrink-0 w-24 h-24 md:w-28 md:h-28 rounded-2xl bg-white border border-muted-foreground/15 shadow-sm relative overflow-hidden flex items-center justify-center">
-                                <Image src="/suez-logo.png" alt="Suez Eau France Logo" fill className="object-contain p-3 md:p-4 mix-blend-multiply contrast-[1.2] brightness-[1.1] dark:invert dark:mix-blend-normal" />
+                                <Image src={suezLogo} alt="Suez Eau France Logo" fill className="object-contain p-3 md:p-4 mix-blend-multiply contrast-[1.2] brightness-[1.1] dark:invert dark:mix-blend-normal" />
                             </div>
 
                             <div className="flex-1">
