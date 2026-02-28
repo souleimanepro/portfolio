@@ -2,26 +2,53 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #ffffff;
+    --foreground: #000000;
+    --accent: #0f172a;
+    /* Deep blue / navy */
+    --accent-foreground: #ffffff;
+    --muted: #f3f4f6;
+    /* Light grey */
+    --muted-foreground: #4b5563;
+    /* Medium grey */
+  }
+
+  /* Optional Dark Mode variant if we want to follow system preference */
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --background: #000000;
+      --foreground: #ffffff;
+      --accent: #1e3a8a;
+      /* Slightly lighter deep blue for dark mode visibility */
+      --accent-foreground: #ffffff;
+      --muted: #111827;
+      /* Dark grayish blue */
+      --muted-foreground: #9ca3af;
+      /* Light grey text */
+    }
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+@layer base {
+  * {
+    @apply border-gray-200 dark:border-gray-800;
+  }
+
+  body {
+    @apply bg-background text-foreground tracking-tight;
+  }
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+/* Hide scrollbar for smooth fullscreen experience */
+::-webkit-scrollbar {
+  display: none;
+}
+
+* {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
 }
