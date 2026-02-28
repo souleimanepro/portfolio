@@ -110,7 +110,7 @@ export function CaseStudies() {
                                 opacity: { duration: 0.4 },
                                 scale: { duration: 0.4 }
                             }}
-                            className="absolute w-full"
+                            className="w-full"
                         >
                             <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-16 item-start">
                                 {/* Left Side: Title and Big Impact */}
