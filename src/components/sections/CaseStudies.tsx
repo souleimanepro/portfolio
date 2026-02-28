@@ -49,7 +49,7 @@ export function CaseStudies() {
     return (
         <section id="projects" className="relative min-h-screen flex items-center pt-32 pb-24 bg-background overflow-hidden snap-start">
             <div className="container px-6 mx-auto">
-                <div className="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-8">
+                <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-8">
                     <div className="max-w-3xl">
                         <motion.h2
                             initial={{ opacity: 0, y: 20 }}
@@ -70,33 +70,9 @@ export function CaseStudies() {
                             {t.projects.subtitle}
                         </motion.p>
                     </div>
-
-                    <motion.div
-                        initial={{ opacity: 0, x: 20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6, delay: 0.2 }}
-                        className="flex items-center gap-4 border border-muted-foreground/20 rounded-full p-2"
-                    >
-                        <button
-                            onClick={() => paginate(-1)}
-                            className="p-3 rounded-full text-foreground hover:bg-muted transition-all focus:outline-none"
-                        >
-                            <ArrowLeft className="w-5 h-5" />
-                        </button>
-                        <div className="px-4 font-medium text-sm tabular-nums text-muted-foreground tracking-widest">
-                            {String(currentIndex + 1).padStart(2, '0')} <span className="text-foreground/20">/</span> {String(cases.length).padStart(2, '0')}
-                        </div>
-                        <button
-                            onClick={() => paginate(1)}
-                            className="p-3 rounded-full text-foreground hover:bg-muted transition-all focus:outline-none"
-                        >
-                            <ArrowRight className="w-5 h-5" />
-                        </button>
-                    </motion.div>
                 </div>
 
-                <div className="relative min-h-[500px]">
+                <div className="relative">
                     <AnimatePresence initial={false} custom={direction} mode="wait">
                         <motion.div
                             key={currentIndex}
@@ -179,6 +155,35 @@ export function CaseStudies() {
                         </motion.div>
                     </AnimatePresence>
                 </div>
+
+                {/* Navigation Controls Move to Bottom for Better Mobile UX */}
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: 0.2 }}
+                    className="flex justify-center mt-12"
+                >
+                    <div className="flex items-center gap-4 border border-muted-foreground/20 rounded-full p-2 bg-background shadow-sm">
+                        <button
+                            onClick={() => paginate(-1)}
+                            className="p-3 rounded-full text-foreground hover:bg-muted transition-all focus:outline-none"
+                            aria-label="Previous project"
+                        >
+                            <ArrowLeft className="w-5 h-5" />
+                        </button>
+                        <div className="px-4 font-medium text-sm tabular-nums text-muted-foreground tracking-widest">
+                            {String(currentIndex + 1).padStart(2, '0')} <span className="text-foreground/20">/</span> {String(cases.length).padStart(2, '0')}
+                        </div>
+                        <button
+                            onClick={() => paginate(1)}
+                            className="p-3 rounded-full text-foreground hover:bg-muted transition-all focus:outline-none"
+                            aria-label="Next project"
+                        >
+                            <ArrowRight className="w-5 h-5" />
+                        </button>
+                    </div>
+                </motion.div>
             </div>
         </section>
     );
